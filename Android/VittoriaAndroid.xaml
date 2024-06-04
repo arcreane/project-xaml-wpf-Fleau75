@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_00_MemoryFloMartio.Android.VittoriaAndroid"
+             Title="Vittoria"
+             BackgroundColor="#F4C531">
+    <VerticalStackLayout>
+        <Label
+            Text="🎉🥳HAI VINTO!!!🥳🎉"
+            TextColor="HotPink"
+            FontFamily="LowBudget"
+            FontSize="25"
+            Margin="0, 30, 0, 0"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <Button
+            Text="⟹ Torna alla pagina principale ⟸"
+            BackgroundColor="White"
+            TextColor="Black"
+            FontFamily="TimesNewRoman"
+            FontSize="19"
+            Clicked="ToHome"
+            CornerRadius="10"
+            Margin="0, 30, 0, 0"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center">
+        </Button>
+        <VerticalStackLayout>
+            <Button x:Name="GetPartite" Clicked="GetPartite_Clicked" Text="Visualizza le ultime 3 partite"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontFamily="TimesNewRoman"
+                    FontSize="19"
+                    CornerRadius="10"
+                    Margin="0, 30, 0, 0"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Center"/>
+            <CollectionView x:Name="datiList" Margin="0, 30, 0, 0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout HorizontalOptions="Center" Margin="10">
+                            <Label Text="{Binding Id, StringFormat='Partita numero: {0:F0}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding Data, StringFormat='Data: {0:dd/MM/yyyy}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding MosseImpiegate, StringFormat='Mosse: {0:F0}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding TempoImpiegato, StringFormat='Tempo: {0:mm\\:ss}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding Tema, StringFormat='Tema: {0:G}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                            <Label Text="{Binding Difficolta, StringFormat='Difficoltà: {0:G}'}" FontFamily="TimesNewRoman" FontSize="20" TextColor="Black"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
